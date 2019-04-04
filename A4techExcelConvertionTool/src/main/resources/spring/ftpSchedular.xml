@@ -9,10 +9,10 @@
 	<!-- cron triggers -->
 	 <bean id="ftpServerCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	 	<property name="jobDetail" ref="ftpServerCronJobDetails"></property> 
-	 	<!-- <property name="cronExpression" value="0 33 17 * * ?"></property> 0 20 19 ? * TUE * -->
-	 	 <!-- <property name="cronExpression" value="0 30 9 1/1 * ? *"></property>  -->
-	 	 <property name="cronExpression" value="0 11 18 ? * MON,TUE,WED,THU,FRI *"></property>
-	 	 <!-- <property name="cronExpression" value="0 0 9 ? * TUE,WED,THU,FRI *"></property> --> 
+	 	
+	 	<!--  <property name="cronExpression" value="0 30 9 ? * MON,TUE,WED,THU,FRI *"></property> -->
+	 	<property name="cronExpression" value="0 24 18 ? * MON,TUE,WED,THU,FRI *"></property>
+	 	 
 	 </bean>
 	<!--  <bean id="ftpServerFailureCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	 	<property name="jobDetail" ref="ftpServerFailureCronJobDetails"></property>
@@ -21,7 +21,7 @@
 	 </bean>	 -->
 	 <bean id="fileMovesCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	 	<property name="jobDetail" ref="fileMovesCronJobDetails"></property> 
-	 	 <property name="cronExpression" value="0 30 16 1/1 * ? *"></property> 
+	 	 <property name="cronExpression" value="0 30 15 1/1 * ? *"></property> 
 	 </bean>
 	<!-- cron Job details -->
       <bean id="ftpServerCronJobDetails" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
