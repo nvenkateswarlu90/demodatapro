@@ -49,10 +49,12 @@ private Logger _LOGGER = Logger.getLogger(FtpServiceImpl.class);
 			ftpClient.enterLocalPassiveMode();
 			ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
 			//InputStream inputStream =  new BufferedInputStream();
+			FileInputStream inputSteram = new FileInputStream(file);
 			String fileName = environmentType+"_"+asiNumber + "_"+file.getName();
-			boolean fileStatus = ftpClient.storeFile(fileName, new FileInputStream(file));
+			boolean fileStatus = ftpClient.storeFile(fileName, inputSteram);
 			//inputStream.close();
 			ftpServerDisconnect();
+			inputSteram.close();
 			return fileStatus;
 		} catch (IOException exe) {
 			_LOGGER.error("unable to save file in Ftp Server: "+exe.getMessage());
