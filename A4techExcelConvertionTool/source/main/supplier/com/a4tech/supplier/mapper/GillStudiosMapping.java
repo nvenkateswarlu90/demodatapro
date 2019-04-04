@@ -468,7 +468,7 @@ while (iterator.hasNext()) {
 				case 6://ExpirationDate / PriceConfirmedThru
 					//String verified= CommonUtility.getCellValueStrinOrInt(cell);
 					//if(verified.equalsIgnoreCase("True")){
-					String priceConfimedThruString="2018-12-31T00:00:00";
+					String priceConfimedThruString="2019-12-31T00:00:00";
 					  productExcelObj.setPriceConfirmedThru(priceConfimedThruString);
 					//}
 					break;

@@ -22,7 +22,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- <import resource="sageMapping.xml" /> -->
-	 <!-- <import resource="ftpSchedular.xml"/> -->
+	 <import resource="ftpSchedular.xml"/>
 	<context:property-placeholder
 	location="classpath:application.properties,classpath:sandbox-database.properties
 	                                       ,classpath:sandbox-externalApiEndPoints.properties,classpath:externalApiEndPointsFtp.properties" />
@@ -93,19 +93,19 @@
    <property name="descrptionParserObj" ref="descrptionParserObj" />
      <property name="productDaoObj" ref="productDao" />
    	</bean>
-	 <!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
   		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
   		<property name="url" value="jdbc:sqlserver://192.168.1.10;databaseName=a4datapro;" />
      	<property name="username" value="sa" />
   		<property name="password" value="P@$$w0rd123" />
-  	</bean> -->  
-	  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+  	</bean>  
+	 <!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${mysql.db.driverClassName}" />
 		<property name="url" value="${mysql.db.url}" />
 		<property name="username" value="${mysql.db.username}" />
 		<property name="password" value="${mysql.db.password}" />
-	</bean>
+	</bean> -->
 
 	<bean id="hibernate3AnnotatedSessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -126,8 +126,8 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				  <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-			 <!-- <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> --> 
+				 <!--  <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> -->
+			 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
 				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="show_sql">true</prop>
 				<prop key="hbm2ddl.auto">update</prop>

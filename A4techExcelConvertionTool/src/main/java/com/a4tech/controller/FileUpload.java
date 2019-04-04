@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.a4tech.core.model.FileBean;
 import com.a4tech.core.supplierMapping.SupplierFactory;
+import com.a4tech.ftp.model.FtpLoginBean;
 import com.a4tech.product.dao.service.ProductDao;
 import com.a4tech.product.service.ILoginService;
 import com.a4tech.product.service.imple.PostServiceImpl;
@@ -47,13 +48,14 @@ public class FileUpload {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcomePage(Map<String, Object> model) {
-		FileBean fileBean = new FileBean();
+		/*FileBean fileBean = new FileBean();
 		model.put("filebean", fileBean);
-		return ApplicationConstants.CONST_STRING_HOME;
-		/*
-		 * FtpLoginBean ftpLogin = new FtpLoginBean(); //uncommented code while using
-		 * ftp model.put("ftpLoginBean", ftpLogin); return "ftpLogin";
-		 */
+		return ApplicationConstants.CONST_STRING_HOME;*/
+		
+		  FtpLoginBean ftpLogin = new FtpLoginBean(); //uncommented code while using
+		   model.put("ftpLoginBean", ftpLogin);
+		   return "ftpLogin";
+		 
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
