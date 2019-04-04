@@ -96,9 +96,14 @@ public class FilesParsing {
 			_LOGGER.error("Unable to process supplier file: "+fileName);
 			mailService.fileProcessFail(fileName);
 		}
+			try {
+				inputStream.close();
+			} catch (IOException e) {
+				_LOGGER.error("unable to close stream and workbook:"+e.getMessage());
+			}
 	 }// end for llop
 		try {
-			inputStream.close();
+			//inputStream.close();
 			workBook.close();
 		} catch (IOException e) {
 			_LOGGER.error("unable to close stream and workbook:"+e.getMessage());
