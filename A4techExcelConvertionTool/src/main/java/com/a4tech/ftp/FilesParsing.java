@@ -209,6 +209,12 @@ public class FilesParsing {
 	    }*/else{
 	    	
 	    }
+	    try {
+			inputStream.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return workBook;
 	}
 	public Workbook getcsvIntoWorkbook(String  pathName){
