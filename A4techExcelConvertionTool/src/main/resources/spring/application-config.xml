@@ -99,14 +99,14 @@
      	<property name="username" value="sa" />
   		<property name="password" value="P@$$w0rd123" />
   	</bean>  
-	 <!--  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	  <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${mysql.db.driverClassName}" />
 		<property name="url" value="${mysql.db.url}" />
 		<property name="username" value="${mysql.db.username}" />
 		<property name="password" value="${mysql.db.password}" />
-	</bean> -->
-
+	</bean>
+ -->
 	<bean id="hibernate3AnnotatedSessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
@@ -126,7 +126,7 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				 <!--  <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> -->
+				  <!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> -->
 			 <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
 				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="show_sql">true</prop>

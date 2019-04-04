@@ -52,6 +52,7 @@ private Logger _LOGGER = Logger.getLogger(FtpServiceImpl.class);
 			String fileName = environmentType+"_"+asiNumber + "_"+file.getName();
 			boolean fileStatus = ftpClient.storeFile(fileName, new FileInputStream(file));
 			//inputStream.close();
+			ftpServerDisconnect();
 			return fileStatus;
 		} catch (IOException exe) {
 			_LOGGER.error("unable to save file in Ftp Server: "+exe.getMessage());

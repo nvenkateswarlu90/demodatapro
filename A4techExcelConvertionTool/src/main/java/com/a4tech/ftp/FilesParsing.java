@@ -41,13 +41,15 @@ public class FilesParsing {
 
 	public void ReadFtpFiles(File[] listOfFiles) {
 		_LOGGER.info("Enter ftp file parser");
+		Workbook workBook = null;
+		FileInputStream inputStream = null;
 		for (File file : listOfFiles) {
 			String fileName = "";
 			try{
 			 fileName = file.getName();
 			String asiNumber = getAsiNumberFile(fileName);
 			 String environmentType = getEnvironment(fileName);
-			Workbook workBook = null;
+			
 			/*boolean fileStatus = isFileProcess(fileName, asiNumber);
 			if (fileStatus) {
 				_LOGGER.info(fileName +" :"+ "file already processed");
@@ -59,14 +61,14 @@ public class FilesParsing {
 				continue;
 			}
 			//This is used to pause mins before processing first file
-			try {
+			/*try {
 				Thread.sleep(1200);
 			} catch (InterruptedException exce) {
 				_LOGGER.error("Interrupted Sleep method: "+exce.getMessage());
-			}
+			}*/
 			 ISupplierParser excelParserImpl = supplierFactory.getExcelParserObject(asiNumber);
 			// workBook = convertCsvToExcel.getWorkBook(file);
-			 FileInputStream inputStream;
+			
 			try {
 				inputStream = new FileInputStream(new File(file.getPath()));
 				String fileExtension = CommonUtility.getFileExtension(file.getPath());
@@ -79,9 +81,6 @@ public class FilesParsing {
 				//workBook = new XSSFWorkbook(inputStream);
 			} catch (FileNotFoundException e) {
 				_LOGGER.error("Ftp file is not available in machine: "+e.getMessage());
-			} catch (IOException e) {
-				
-				_LOGGER.error("Ftp file is not available in machine: "+e.getMessage());
 			}
 			 int batchId = productDao.createBatchId(Integer.parseInt(asiNumber));
 			 if(workBook != null){
@@ -92,12 +91,18 @@ public class FilesParsing {
 				 processFileStatusMail(asiNumber, "ProcessEnd", batchId,environmentType);
 			 }	
 			_LOGGER.info(fileName +":"+ "file parsing completed");
+			
            }catch (Exception exce) {
 			_LOGGER.error("Unable to process supplier file: "+fileName);
 			mailService.fileProcessFail(fileName);
 		}
 	 }// end for llop
-		
+		try {
+			inputStream.close();
+			workBook.close();
+		} catch (IOException e) {
+			_LOGGER.error("unable to close stream and workbook:"+e.getMessage());
+		}
 	}
 
 	public boolean isFileProcess(String fileName, String asiNumber) {

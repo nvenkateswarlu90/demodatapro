@@ -91,7 +91,7 @@ public class MailServiceImpl implements IMailService{
 					"amey.more@a4technology.com","azam.rizvi@a4technology.com" };*/
 			//helper.setTo(toAddress); 
     //         helper.setTo("SPullins@asicentral.com");
-		     helper.setTo("integrations@asicentral.com");
+		    // helper.setTo("integrations@asicentral.com");
 			helper.setBcc(bccmails);
 		      helper.setSubject(subject);
 		      helper.setText(body);
@@ -114,7 +114,7 @@ public class MailServiceImpl implements IMailService{
 			  String[] bccmails = { "venkateswarlu.nidamanuri@a4technology.com"};
 		      MimeMessage mimeMessage = mailSender.createMimeMessage();
 		      MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-		     helper.setTo("integrations@asicentral.com");
+		    // helper.setTo("integrations@asicentral.com");
 		      helper.setBcc(bccmails);
 		      helper.setSubject(subject);
 		      helper.setFrom(senderMailName);
