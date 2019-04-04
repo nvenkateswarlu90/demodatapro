@@ -9,10 +9,7 @@
 	<!-- cron triggers -->
 	 <bean id="ftpServerCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	 	<property name="jobDetail" ref="ftpServerCronJobDetails"></property> 
-	 	
-	 	<!--  <property name="cronExpression" value="0 30 9 ? * MON,TUE,WED,THU,FRI *"></property> -->
-	 	<property name="cronExpression" value="0 24 18 ? * MON,TUE,WED,THU,FRI *"></property>
-	 	 
+	 	 <property name="cronExpression" value="0 30 9 ? * MON,TUE,WED,THU,FRI *"></property> 
 	 </bean>
 	<!--  <bean id="ftpServerFailureCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	 	<property name="jobDetail" ref="ftpServerFailureCronJobDetails"></property>
