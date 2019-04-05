@@ -141,13 +141,14 @@ public class GoldbondAttributeParser {
 		 // List<String> clrs = new ArrayList<>(new HashSet<>(c))
 		  List<Color> listOfColors = new ArrayList<>();
 		  Color colorObj = null;
-		  Map<String, String> productColorsMap = productDataStore.getProductColors(asiNumber);
-		  if(!CollectionUtils.isEmpty(productColorsMap)) {
+		  //Map<String, String> productColorsMap = productDataStore.getProductColors(asiNumber);
+		 // if(!CollectionUtils.isEmpty(productColorsMap)) {
 			  for (String colorName : allColors) {
 				  colorObj = new Color();
 				     String alias = colorName;
 				     colorName = colorName.replaceAll("\\(.*?\\)", "").trim();
-				     String colorGroup = productColorsMap.get(colorName);
+				   //  String colorGroup = productColorsMap.get(colorName);
+				     String colorGroup = GoldbondColorAndImprintMethodMapping.getColorGroup(colorName);
 				     if(colorGroup == null){
 				    	 colorGroup = "Other";
 				     }
@@ -159,9 +160,9 @@ public class GoldbondAttributeParser {
 				  }
 				  listOfColors.add(colorObj);
 			}
-		  } else {
+		  /*} else {
 			  _LOGGER.error("Product Colors are not available in DB");
-		  }
+		  }*/
 		  
 		return listOfColors;
 	}
