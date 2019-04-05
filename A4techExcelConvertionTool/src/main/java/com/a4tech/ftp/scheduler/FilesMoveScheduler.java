@@ -35,6 +35,9 @@ public class FilesMoveScheduler  extends QuartzJobBean{
         try {
 			FileUtils.cleanDirectory(source);
 			_LOGGER.info("all files removed form src folder");
+			
+			String ftpUploadfilePath ="D:\\Upload Files";
+			FileUtils.cleanDirectory(new File(ftpUploadfilePath));
 		} catch (IOException e) {
 			_LOGGER.error("unable to remove files from source folder: "+e.getCause());
 		}
