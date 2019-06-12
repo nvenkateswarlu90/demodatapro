@@ -1,7 +1,5 @@
 package com.a4tech.product.test;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,15 +13,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.a4tech.product.dao.entity.SupplierProductColors;
 import com.a4tech.product.dao.entity.SupplierProductColors;
 import com.a4tech.product.test.service.IProductDaoTest;
 
@@ -89,9 +84,7 @@ public class ProductColorsMappingTest {
                         	 colorName = colors[0];
                         	 colorGroup = colors[1];
                          }
-                         
                         break;
-                
                 }
                
             }
