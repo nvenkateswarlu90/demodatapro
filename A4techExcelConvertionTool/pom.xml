@@ -23,7 +23,7 @@
 		<hibernate.version>3.6.9.Final</hibernate.version>
 	<mysql.connector.version>8.0.11</mysql.connector.version>
 		<!-- quatz -->
-		<quartz.version>2.2.1</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<a4.tomcat.server.url></a4.tomcat.server.url>
 		<a4.tomcat.server.name></a4.tomcat.server.name>
 	</properties>
