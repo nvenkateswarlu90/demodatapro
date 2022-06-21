@@ -21,7 +21,7 @@
 		<poi.version>3.16</poi.version>
 		<!-- hibernate -->
 		<hibernate.version>3.6.9.Final</hibernate.version>
-	<mysql.connector.version>8.0.11</mysql.connector.version>
+	<mysql.connector.version>8.0.28</mysql.connector.version>
 		<!-- quatz -->
 		<quartz.version>2.2.1</quartz.version>
 		<a4.tomcat.server.url></a4.tomcat.server.url>
